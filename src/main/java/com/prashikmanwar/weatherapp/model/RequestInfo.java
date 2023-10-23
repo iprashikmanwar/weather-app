@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CurrentWeatherResponse implements WeatherStackResponse {
-    private RequestInfo request;
-    private Location location;
-    private Current current;
+public class RequestInfo {
+    private String type;
+    private String query;
+    private String language;
+    private String unit;
 }

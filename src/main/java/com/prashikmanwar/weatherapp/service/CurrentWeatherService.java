@@ -27,7 +27,7 @@ public class CurrentWeatherService {
         try{
             URI uri = new URI(WeatherStack_URL);
             ResponseEntity<CurrentWeatherResponse> wsResponse = restClient.getForEntity(uri, CurrentWeatherResponse.class);
-            return new CurrentWeatherResponse("ARequest","Location","Currently");
+            return new CurrentWeatherResponse();//"ARequest","Location","Currently");
         }catch(Exception ex){
             throw new RuntimeException(ex);
         }
