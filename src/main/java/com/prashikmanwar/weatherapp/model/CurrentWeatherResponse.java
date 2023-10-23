@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CurrentWeatherResponse {
+public class CurrentWeatherResponse implements WeatherStackResponse {
     private String request;
     private String location;
     private String current;
+
 }
