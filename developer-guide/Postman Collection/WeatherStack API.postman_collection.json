@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "ca52beaf-629b-4b5e-9237-30adb74f9aa2",
+		"name": "WeatherStack API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetWeatherAt",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.weatherstack.com/current?access_key=27c50212cc3694b06738080e84844a3f&query=Pune",
+					"protocol": "http",
+					"host": [
+						"api",
+						"weatherstack",
+						"com"
+					],
+					"path": [
+						"current"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "27c50212cc3694b06738080e84844a3f"
+						},
+						{
+							"key": "query",
+							"value": "Pune"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

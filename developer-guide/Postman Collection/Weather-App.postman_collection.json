@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "0955d9eb-a6f5-470b-916b-9b30f82b3b5e",
+		"name": "Weather-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetWeatherAt LOCAL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8081/currentWeather/v1/Pune"
+			},
+			"response": []
+		}
+	]
+}

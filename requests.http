@@ -1,0 +1,8 @@
+/***
+* "HTTP client" required here - available in Ultimate
+* If Ultimate - earth symbol near the controller endpoint => indicate HTTP client is being used
+* near to the earth symbol - we have a dropdown button - select 'Generate request in HTTP client'
+* This will generate all the possible request as per avaialble controllers of all the HTTP method
+*/
+
+GET http://localhost:8081/currentWeather/v1/Pune
