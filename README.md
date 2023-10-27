@@ -1,2 +1,4 @@
-# weather-app
-Weather tracking app to consume publicly exposed Weatherstack API with possible design patterns
+# Weather App
+
+
+This project is a simple weather app based on microservice architecture pattern using Spring boot technologies and an external api service WeatherStack
