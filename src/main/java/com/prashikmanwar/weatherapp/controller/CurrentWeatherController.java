@@ -1,7 +1,6 @@
 package com.prashikmanwar.weatherapp.controller;
 
 import com.prashikmanwar.weatherapp.model.CurrentWeatherResponse;
-import com.prashikmanwar.weatherapp.service.CurrentWeatherService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
@@ -12,13 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/currentWeather")
+@RequestMapping("/currentWeather/v1")
 public class CurrentWeatherController {
     private final Logger logger = LoggerFactory.getLogger(CurrentWeatherController.class);
-    private final CurrentWeatherService currentWeatherService;
 
-    CurrentWeatherController(CurrentWeatherService currentWeatherService){
-        this.currentWeatherService = currentWeatherService;
+    CurrentWeatherController(){
     }
 
     @GetMapping(value = {"/{location}"}, produces = {"application/json"})
