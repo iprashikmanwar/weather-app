@@ -7,7 +7,12 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class RestTemplateConfiguration {
 
-    @Bean
+    /***
+     * We need a bean of the below method
+     * @Component - cannot be used as it is the class level annotation
+     * @Bean - is a method level annotation - we can use it here
+     */
+    @Bean("restTemplateBeanFromRestTemplateConfiguration")
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
