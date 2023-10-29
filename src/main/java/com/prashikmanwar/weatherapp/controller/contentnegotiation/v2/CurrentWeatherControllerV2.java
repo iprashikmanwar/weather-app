@@ -5,14 +5,10 @@ import com.prashikmanwar.weatherapp.repository.CurrentWeatherCollectionRepositor
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/v2/currentWeather")
@@ -34,6 +30,35 @@ public class CurrentWeatherControllerV2 {
     public CurrentWeatherResponse getCurrentWeatherByLocationfromList(@PathVariable String location) {
         logger.info("Request received for getting weather at: {}", location);
         return repository.findByPlace(location).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found!"));
+    }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @PostMapping("/")
+    public void createDummyWeather(@RequestBody CurrentWeatherResponse weather) {
+        try {
+            logger.info("Creation request received for {}", weather.location().name());
+            repository.save(weather);
+            logger.info("Request completed for {}", weather.location().name());
+        } catch (RuntimeException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)      //Everything is good - we are just not sending out anything in response
+    @PutMapping(value = "/{location}", produces = "application/json")
+    public void updateCurrentWeatherByLocationfromList(@RequestBody CurrentWeatherResponse weather, @PathVariable String location) {
+        logger.info("Request received for updating weather at: {}", location);
+        if (!repository.existByLocation(location)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Content not found!");
+        }
+        repository.save(weather);
+        logger.info("Request completed for {}", weather.location().name());
+    }
+
+    @DeleteMapping(value = "/{location}")
+    public void deleteCurrentWeatherByLocationfromList(@PathVariable String location) {
+        logger.info("Request received for deleting weather at: {}", location);
+        repository.deleteByLocation(location);
     }
 
 }

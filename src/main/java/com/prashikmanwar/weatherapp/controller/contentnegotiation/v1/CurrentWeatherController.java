@@ -29,7 +29,7 @@ public class CurrentWeatherController {
             logger.info("Request received for getting weather at {}", location);
             CurrentWeatherResponse currentWeatherResponse = new RestTemplate().getForEntity("http://api.weatherstack.com/current?access_key=27c50212cc3694b06738080e84844a3f&query=" + location, CurrentWeatherResponse.class).getBody();
             logger.debug("Response received from external service for {} - {}", currentWeatherResponse.location().name(), currentWeatherResponse.current().weather_descriptions());
-            repository.add(currentWeatherResponse);
+            repository.save(currentWeatherResponse);
             return ResponseEntity.ok(currentWeatherResponse);
         } catch (Exception ex) {
             throw new RuntimeException(ex);

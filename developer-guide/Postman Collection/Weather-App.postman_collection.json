@@ -31,6 +31,117 @@
 				"url": "http://localhost:8081/v2/currentWeather/Thiruvananthapuram"
 			},
 			"response": []
+		},
+		{
+			"name": "PostDummyWeather_V2 LOCAL",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"request\": {\r\n        \"type\": \"City\",\r\n        \"query\": \"Delhi, Canada\",\r\n        \"language\": \"en\",\r\n        \"unit\": \"m\"\r\n    },\r\n    \"location\": {\r\n        \"name\": \"Manwardi\",\r\n        \"country\": \"Canada\",\r\n        \"region\": \"Ontario\",\r\n        \"lat\": \"42.850\",\r\n        \"lon\": \"-80.500\",\r\n        \"timezone_id\": \"America/Toronto\",\r\n        \"localtime\": \"2023-10-29 10:33\",\r\n        \"localtime_epoch\": 1698575580,\r\n        \"utc_offset\": \"-4.0\"\r\n    },\r\n    \"current\": {\r\n        \"observation_time\": \"02:33 PM\",\r\n        \"temperature\": 7,\r\n        \"weather_code\": 113,\r\n        \"weather_icons\": [\r\n            \"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png\"\r\n        ],\r\n        \"weather_descriptions\": [\r\n            \"Sunny\"\r\n        ],\r\n        \"wind_speed\": 4,\r\n        \"wind_degree\": 100,\r\n        \"wind_dir\": \"E\",\r\n        \"pressure\": 1020,\r\n        \"precip\": 0,\r\n        \"humidity\": 91,\r\n        \"cloudcover\": 0,\r\n        \"feelslike\": 3,\r\n        \"uv_index\": 2,\r\n        \"visibility\": 10\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/v2/currentWeather/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v2",
+						"currentWeather",
+						""
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutDummyWeather_V2 LOCAL",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"request\": {\r\n        \"type\": \"City\",\r\n        \"query\": \"Pune, India\",\r\n        \"language\": \"en\",\r\n        \"unit\": \"m\"\r\n    },\r\n    \"location\": {\r\n        \"name\": \"Pune\",\r\n        \"country\": \"India\",\r\n        \"region\": \"Maharashtra_New\",\r\n        \"lat\": \"18.533\",\r\n        \"lon\": \"73.867\",\r\n        \"timezone_id\": \"Asia/Kolkata\",\r\n        \"localtime\": \"2023-10-30 00:52\",\r\n        \"localtime_epoch\": 1698627120,\r\n        \"utc_offset\": \"5.50\"\r\n    },\r\n    \"current\": {\r\n        \"observation_time\": \"07:22 PM\",\r\n        \"temperature\": 21,\r\n        \"weather_code\": 113,\r\n        \"weather_icons\": [\r\n            \"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0008_clear_sky_night.png\"\r\n        ],\r\n        \"weather_descriptions\": [\r\n            \"Clear\"\r\n        ],\r\n        \"wind_speed\": 4,\r\n        \"wind_degree\": 72,\r\n        \"wind_dir\": \"ENE\",\r\n        \"pressure\": 1012,\r\n        \"precip\": 0,\r\n        \"humidity\": 50,\r\n        \"cloudcover\": 3,\r\n        \"feelslike\": 21,\r\n        \"uv_index\": 1,\r\n        \"visibility\": 10,\r\n        \"is_day\": \"no\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/v2/currentWeather/Pune",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v2",
+						"currentWeather",
+						"Pune"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteDummyWeather_V2 LOCAL",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/v2/currentWeather/Pune",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"v2",
+						"currentWeather",
+						"Pune"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
