@@ -6,11 +6,29 @@
 	},
 	"item": [
 		{
-			"name": "GetWeatherAt LOCAL",
+			"name": "GetWeatherAt_V1 LOCAL",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "http://localhost:8081/currentWeather/v1/Pune"
+				"url": "http://localhost:8081/v1/currentWeather/Kerala"
+			},
+			"response": []
+		},
+		{
+			"name": "GetWeatherAll_V2 LOCAL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8081/v2/currentWeather/"
+			},
+			"response": []
+		},
+		{
+			"name": "GetWeatherAt_V2 LOCAL",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8081/v2/currentWeather/Thiruvananthapuram"
 			},
 			"response": []
 		}
