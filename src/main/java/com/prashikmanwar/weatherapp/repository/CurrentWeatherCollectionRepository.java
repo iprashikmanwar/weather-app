@@ -30,6 +30,10 @@ public class CurrentWeatherCollectionRepository {
         return currentWeatherResponseList.stream().filter(c -> c.location().name().equals(name)).findFirst();
     }
 
+    public void add(CurrentWeatherResponse reponse){
+        currentWeatherResponseList.add(reponse);
+    }
+
     @PostConstruct
     public void init() {
         CurrentWeatherResponse currentWeatherResponse = new CurrentWeatherResponse(
