@@ -22,6 +22,15 @@ public class CurrentWeatherCollectionRepository {
     CurrentWeatherCollectionRepository() {
     }
 
+    @PostConstruct
+    public void init() {
+        CurrentWeatherResponse currentWeatherResponse = new CurrentWeatherResponse(
+                new RequestInfo("City", "Pune, India", "en", "m"),
+                new Location("Pune", "India", "Maharashtra", "18.533", "73.867", "Asia/Kolkata", "2023-10-28 12:51", 1698497460, "5.50"),
+                new Current("07:21 AM", 29, 113, new String[]{"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png"}, new String[]{"Sunny"}, 11, 112, "ESE", 1013, 0, 30, 4, 28, 7, 10));
+        currentWeatherResponseList.add(currentWeatherResponse);
+    }
+
     public List<CurrentWeatherResponse> findAll() {
         return currentWeatherResponseList;
     }
@@ -30,16 +39,16 @@ public class CurrentWeatherCollectionRepository {
         return currentWeatherResponseList.stream().filter(c -> c.location().name().equals(name)).findFirst();
     }
 
-    public void add(CurrentWeatherResponse reponse){
-        currentWeatherResponseList.add(reponse);
+    public void save(CurrentWeatherResponse response) {
+        currentWeatherResponseList.removeIf(c -> c.location().name().equals(response.location().name()));
+        currentWeatherResponseList.add(response);
     }
 
-    @PostConstruct
-    public void init() {
-        CurrentWeatherResponse currentWeatherResponse = new CurrentWeatherResponse(
-                new RequestInfo("City", "Pune, India", "en", "m"),
-                new Location("Pune", "India", "Maharashtra", "18.533", "73.867", "Asia/Kolkata", "2023-10-28 12:51", 1698497460, "5.50"),
-                new Current("07:21 AM", 29, 113, new String[]{"https://cdn.worldweatheronline.com/images/wsymbols01_png_64/wsymbol_0001_sunny.png"}, new String[]{"Sunny"}, 11, 112, "ESE", 1013, 0, 30, 4, 28, 7, 10));
-        currentWeatherResponseList.add(currentWeatherResponse);
+    public boolean existByLocation(String location) {
+        return currentWeatherResponseList.stream().filter(c -> c.location().name().equals(location)).count() >= 1;
+    }
+
+    public void deleteByLocation(String location) {
+        currentWeatherResponseList.removeIf(c -> c.location().name().equals(location));
     }
 }
