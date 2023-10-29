@@ -1,6 +1,9 @@
 server:
    port: 8081
 
+weather-stack:
+   basePath: "http://api.weatherstack.com/current?access_key=27c50212cc3694b06738080e84844a3f&query="
+
 #logging:
 #  level:
 #    ROOT: DEBUG
