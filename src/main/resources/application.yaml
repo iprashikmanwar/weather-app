@@ -4,6 +4,18 @@ server:
 weather-stack:
    basePath: "http://api.weatherstack.com/current?access_key=27c50212cc3694b06738080e84844a3f&query="
 
+spring:
+   profiles:
+      active: dev
+
+management:
+   endpoints:
+      web:
+         exposure:
+            include: "*"
+      health:
+         show-details: always
+
 #logging:
 #  level:
 #    ROOT: DEBUG
